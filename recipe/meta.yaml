@@ -45,7 +45,7 @@ requirements:
     - fake-factory
     - gitpython
     - fuzzywuzzy
-    - psutil >=1.2.1,<=2.2.1
+    - psutil >=1.2.1
     - setproctitle
     - gnureadline ==6.3.3  # [osx]
 
