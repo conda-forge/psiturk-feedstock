@@ -78,7 +78,6 @@ test:
     - psiturk-server --help
     - psiturk-setup-example --help
     - psiturk-install --help
-    - psiturk-setup-example
 
 about:
   home: http://github.com/NYUCCL/psiturk
