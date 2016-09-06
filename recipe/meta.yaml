@@ -3,6 +3,7 @@
 {%set compress_type = "tar.gz" %}
 {%set hash_type = "sha256" %}
 {%set hash_val = "3fea9276310cd0cd31ead13a027735dba4762cda6a7af05aa180390da541d930" %}
+{%set build_num = "2" %}
 
 package:
   name: {{ name|lower }}
@@ -22,7 +23,7 @@ build:
     - psiturk-setup-example = psiturk.command_line:process
     - psiturk-install = psiturk.command_line:process
 
-  number: 1
+  number: {{ build_num }}
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -41,7 +42,7 @@ requirements:
     - boto ==2.15.0
     - docopt ==0.6.2
     - requests ==2.2.1
-    - psutil ==1.2.1
+    - psutil >=1.2.1
     - werkzeug ==0.10.4
     - gnureadline ==6.3.3  # [osx]
     # The below pinned requirements are unavailable for conda-forge
