@@ -1,16 +1,16 @@
-{%set name = "psiturk" %}
-{%set camelName = "PsiTurk" %}
+{%set name = "PsiTurk" %}
 {%set version = "2.1.4" %}
+{%set compress_type = "tar.gz" %}
 {%set hash_type = "sha256" %}
 {%set hash_val = "643898a8172bf489921abb12bfc8f4da7ce91c641db656ef8deddc5ee68bf0b2" %}
 
 package:
-  name: {{ name }}
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ camelName }}-{{ version }}.tar.gz
+  fn: {{ name }}-{{ version }}.{{ compress_type }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
   {{ hash_type }}: {{ hash_val }}
 
 build:
@@ -22,7 +22,7 @@ build:
     - psiturk-setup-example = psiturk.command_line:process
     - psiturk-install = psiturk.command_line:process
 
-  number: 0
+  number: 1
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
