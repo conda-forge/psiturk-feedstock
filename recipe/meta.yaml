@@ -56,7 +56,6 @@ requirements:
     - setproctitle ==1.1.10  # Pinned is 1.1.8
     - ua-parser ==0.7.1  # Pinned is 0.3.6
 
-
 test:
   imports:
     - psiturk
