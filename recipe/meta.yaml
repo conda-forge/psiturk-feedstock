@@ -34,7 +34,7 @@ requirements:
     # All of these requirements are pinned in
     #  https://github.com/NYUCCL/psiTurk/blob/master/requirements.txt
     - python
-    - argparse ==1.2.1 # [py<27]
+    - argparse ==1.2.1  # [py<27]
     - flask ==0.10.1
     - sqlalchemy ==0.8.3
     - gunicorn ==19.6.0
