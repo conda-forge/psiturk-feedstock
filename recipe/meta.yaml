@@ -1,8 +1,8 @@
 {%set name = "PsiTurk" %}
-{%set version = "2.1.4" %}
+{%set version = "2.1.6" %}
 {%set compress_type = "tar.gz" %}
 {%set hash_type = "sha256" %}
-{%set hash_val = "643898a8172bf489921abb12bfc8f4da7ce91c641db656ef8deddc5ee68bf0b2" %}
+{%set hash_val = "3fea9276310cd0cd31ead13a027735dba4762cda6a7af05aa180390da541d930" %}
 
 package:
   name: {{ name|lower }}
@@ -31,27 +31,45 @@ requirements:
     - setuptools
 
   run:
+    # All of these requirements are pinned in
+    #  https://github.com/NYUCCL/psiTurk/blob/master/requirements.txt
     - python
-    - argparse  # [py<27]
-    - flask
-    - sqlalchemy
-    - gunicorn
-    - boto >=2.9
-    - cmd2
-    - docopt
-    - requests >=2.2.1
-    - user-agents
-    - sh
-    - fake-factory
-    - gitpython
-    - fuzzywuzzy
-    - psutil >=1.2.1,<=2.2.1
-    - setproctitle
+    - argparse ==1.2.1  # [py<27]
+    - flask ==0.10.1
+    - sqlalchemy ==0.8.3
+    - gunicorn ==19.6.0
+    - boto ==2.15.0
+    - docopt ==0.6.2
+    - requests ==2.2.1
+    - psutil ==1.2.1
+    - werkzeug ==0.10.4
     - gnureadline ==6.3.3  # [osx]
+    # The below pinned requirements are unavailable for conda-forge
+    # I've switched them to available requirements
+    # The build seems succcessful
+    - cmd2 ==0.6.8  # Pinned is 0.6.7
+    - sh ==1.11  # Pinned is 1.09
+    - fake-factory ==0.5.8  # Pinned is 0.3.2
+    - fuzzywuzzy ==0.11.0  # Pinned is 0.2
+    - gitpython ==2.0.8  # Pinned is 0.1.7
+    - setproctitle ==1.1.10  # Pinned is 1.1.8
+    - ua-parser ==0.7.1  # Pinned is 0.3.6
+    - user-agents ==1.0.1  # Pinned is 0.2.0
 
 test:
   imports:
     - psiturk
+    - psiturk.amt_services
+    - psiturk.command_line
+    - psiturk.counter
+    - psiturk.experiment_errors
+    - psiturk.experiment_server_controller
+    - psiturk.psiturk_config
+    - psiturk.psiturk_org_services
+    # - psiturk.db - requires a local config.txt file.
+    # - psiturk.experiment - requires a local config.txt file.
+    # - psiturk.experiment_server - requires a local config.txt file.
+    # - psiturk.models - requires a local config.txt file.
 
   commands:
     - psiturk-shell --help
