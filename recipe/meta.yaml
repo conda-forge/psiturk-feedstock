@@ -44,10 +44,10 @@ requirements:
     - requests ==2.2.1
     - psutil >=1.2.1
     - werkzeug ==0.10.4
-    - readline ==6.3.3  # [osx]
     # The below pinned requirements are unavailable for conda-forge
     # I've switched them to available requirements
     # The build seems succcessful
+    - readline ==6.3  # [osx]   # Pinned is gnureadline==6.3.3
     - cmd2 ==0.6.8  # Pinned is 0.6.7
     - sh ==1.11  # Pinned is 1.09
     - fake-factory ==0.5.8  # Pinned is 0.3.2
