@@ -11,6 +11,18 @@ Summary: An open platform for science on Amazon Mechanical Turk
 
 
 
+Current build status
+====================
+
+Linux: [![Circle CI](https://circleci.com/gh/conda-forge/psiturk-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/psiturk-feedstock)
+OSX: [![TravisCI](https://travis-ci.org/conda-forge/psiturk-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/psiturk-feedstock)
+Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+
+Current release info
+====================
+Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/psiturk/badges/version.svg)](https://anaconda.org/conda-forge/psiturk)
+Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/psiturk/badges/downloads.svg)](https://anaconda.org/conda-forge/psiturk)
+
 Installing psiturk
 ==================
 
@@ -31,7 +43,6 @@ It is possible to list all of the versions of `psiturk` available on your platfo
 ```
 conda search psiturk --channel conda-forge
 ```
-
 
 
 About conda-forge
@@ -67,18 +78,6 @@ Terminology
 
 **conda-forge** - the place where the feedstock and smithy live and work to
                   produce the finished article (built conda distributions)
-
-Current build status
-====================
-
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/psiturk-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/psiturk-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/psiturk-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/psiturk-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
-
-Current release info
-====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/psiturk/badges/version.svg)](https://anaconda.org/conda-forge/psiturk)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/psiturk/badges/downloads.svg)](https://anaconda.org/conda-forge/psiturk)
 
 
 Updating psiturk-feedstock
