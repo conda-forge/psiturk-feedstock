@@ -1,8 +1,8 @@
 {% set name = "PsiTurk" %}
 {% set version = "2.2.3" %}
-{% set compress_type = "tar.gz" %}
+{% set bundle = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash_val = "4b7128de1f32313c722058ee0ef57becf4a74b39f5241760e41a9781e8b9bd5a" %}
+{% set hash = "4b7128de1f32313c722058ee0ef57becf4a74b39f5241760e41a9781e8b9bd5a" %}
 {% set build = 0 %}
 
 package:
@@ -10,9 +10,9 @@ package:
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ compress_type }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
-  {{ hash_type }}: {{ hash_val }}
+  fn: {{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  {{ hash_type }}: {{ hash }}
 
 build:
   skip: True  # [py3k]
@@ -25,7 +25,7 @@ build:
     - psiturk-setup-example = psiturk.command_line:process
     - psiturk-install = psiturk.command_line:process
 
-  number: {{ build_num }}
+  number: {{ build }}
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
