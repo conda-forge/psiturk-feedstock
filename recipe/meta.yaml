@@ -1,21 +1,23 @@
-{%set name = "PsiTurk" %}
-{%set version = "2.1.6" %}
-{%set compress_type = "tar.gz" %}
-{%set hash_type = "sha256" %}
-{%set hash_val = "3fea9276310cd0cd31ead13a027735dba4762cda6a7af05aa180390da541d930" %}
-{%set build_num = "2" %}
+{% set name = "PsiTurk" %}
+{% set version = "2.2.3" %}
+{% set bundle = "tar.gz" %}
+{% set hash_type = "sha256" %}
+{% set hash = "4b7128de1f32313c722058ee0ef57becf4a74b39f5241760e41a9781e8b9bd5a" %}
+{% set build = 0 %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.{{ compress_type }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ compress_type }}
-  {{ hash_type }}: {{ hash_val }}
+  fn: {{ name }}-{{ version }}.{{ bundle }}
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  {{ hash_type }}: {{ hash }}
 
 build:
-  skip: True  # [win or py3k]
+  skip: True  # [py3k]
+  noarch: python
+  
   entry_points:
     - psiturk-shell = psiturk.psiturk_shell:run
     - psiturk = psiturk.command_line:process
@@ -23,7 +25,7 @@ build:
     - psiturk-setup-example = psiturk.command_line:process
     - psiturk-install = psiturk.command_line:process
 
-  number: {{ build_num }}
+  number: {{ build }}
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
@@ -36,18 +38,18 @@ requirements:
     #  https://github.com/NYUCCL/psiTurk/blob/master/requirements.txt
     - python
     - argparse ==1.2.1  # [py<27]
-    - flask ==0.10.1
+    - flask ==0.12.1
     - sqlalchemy ==0.8.3
-    - gunicorn ==19.6.0
     - boto ==2.15.0
     - docopt ==0.6.2
-    - requests ==2.2.1
+    - requests ==2.5.0
     - psutil >=1.2.1
-    - werkzeug ==0.10.4
+    - werkzeug ==0.12.1
     - gnureadline ==6.3.3  # [osx]
     # The below pinned requirements are unavailable for conda-forge
     # I've switched them to available requirements
     # The build seems succcessful
+    - gunicorn ==19.6.0  # Pinned is 14.4.5
     - cmd2 ==0.6.8  # Pinned is 0.6.7
     - sh ==1.11  # Pinned is 1.09
     - fake-factory ==0.5.8  # Pinned is 0.3.2
@@ -56,7 +58,7 @@ requirements:
     - setproctitle ==1.1.10  # Pinned is 1.1.8
     - ua-parser ==0.7.1  # Pinned is 0.3.6
     - user-agents ==1.0.1  # Pinned is 0.2.0
-
+    
 test:
   imports:
     - psiturk
@@ -80,9 +82,13 @@ test:
     - psiturk-install --help
 
 about:
-  home: http://github.com/NYUCCL/psiturk
+  home: https://psiturk.org/
+  license_file: LICENSE
   license: MIT
+  license_family: MIT
   summary: 'An open platform for science on Amazon Mechanical Turk'
+  dev_url: https://github.com/NYUCCL/psiTurk
+  doc_url: https://psiturk.org/docs/
 
 extra:
   recipe-maintainers:
