@@ -36,7 +36,7 @@ requirements:
     # All of these requirements are pinned in
     #  https://github.com/NYUCCL/psiTurk/blob/master/requirements.txt
     - python >=3.6
-    - argparse >=1.2.1  # [py<27]
+    - argparse >=1.2.1
     - flask >=0.12.1
     - sqlalchemy >=0.8.3
     - boto >=2.15.0
@@ -44,7 +44,7 @@ requirements:
     - requests >=2.5.0
     - psutil >=1.2.1
     - werkzeug >=0.12.1
-    - gnureadline >=6.3.3  # [osx]
+    - gnureadline >=6.3.3
     # The below pinned requirements are unavailable for conda-forge
     # I've switched them to available requirements
     # The build seems succcessful
