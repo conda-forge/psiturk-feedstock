@@ -1,8 +1,8 @@
 {% set name = "PsiTurk" %}
-{% set version = "2.2.3" %}
+{% set version = "2.3.2" %}
 {% set bundle = "tar.gz" %}
 {% set hash_type = "sha256" %}
-{% set hash = "4b7128de1f32313c722058ee0ef57becf4a74b39f5241760e41a9781e8b9bd5a" %}
+{% set hash = "b4fd05223760ccf2c0b98695a2d093e817d220f2605ee78c1efcfe8d37fb62c4" %}
 {% set build = 0 %}
 
 package:
