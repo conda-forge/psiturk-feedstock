@@ -1,9 +1,8 @@
 {% set name = "PsiTurk" %}
 {% set version = "2.2.3" %}
 {% set bundle = "tar.gz" %}
-{% set hash_type = "sha256" %}
 {% set hash = "4b7128de1f32313c722058ee0ef57becf4a74b39f5241760e41a9781e8b9bd5a" %}
-{% set build = 0 %}
+{% set build = 1 %}
 
 package:
   name: {{ name|lower }}
@@ -11,8 +10,8 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.{{ bundle }}
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
-  {{ hash_type }}: {{ hash }}
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.{{ bundle }}
+  sha256: {{ hash }}
 
 build:
   skip: True  # [py3k]
@@ -29,14 +28,14 @@ build:
   script: python setup.py install --single-version-externally-managed --record=record.txt
 
 requirements:
-  build:
-    - python
+  host:
+    - python {{ python_min }}
     - setuptools
 
   run:
     # All of these requirements are pinned in
     #  https://github.com/NYUCCL/psiTurk/blob/master/requirements.txt
-    - python
+    - python >={{ python_min }}
     - argparse ==1.2.1  # [py<27]
     - flask ==0.12.1
     - sqlalchemy ==0.8.3
@@ -60,6 +59,8 @@ requirements:
     - user-agents ==1.0.1  # Pinned is 0.2.0
     
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - psiturk
     - psiturk.amt_services
